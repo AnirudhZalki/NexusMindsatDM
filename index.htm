@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prisoner's Dilemma Game</title>
+	  <style>
+		   body 
+		  {
+            background-color: #C0C0C0; 
+            color: #333; 
+            font-family: Arial, sans-serif; 
+        	}
+	  </style>
+  </head>
+  <body>
+    <h1>Prisoner's Dilemma Game</h1>
+    <h2>Welcome!<h2>
+    <button id="cooperate-button">Cooperate</button>
+    <button id="betray-button">Betray</button>
+    <button id="stop-button">Stop</button>
+    <div id="results"></div>
+
+    <script>
+      const resultsDiv = document.getElementById('results');
+
+      const cooperateButton = document.getElementById('cooperate-button');
+      cooperateButton.addEventListener('click', () => {
+        playRound('Cooperate');
+      });
+
+      const betrayButton = document.getElementById('betray-button');
+      betrayButton.addEventListener('click', () => {
+        playRound('Betray');
+      });
+
+      const stopButton = document.getElementById('stop-button');
+      stopButton.addEventListener('click', () => {
+        stopGame();
+      });
+
+      let player1Score = 0;
+      let player2Score = 0;
+      let roundNumber = 0;
+
+      function playRound(player1Choice) {
+        roundNumber++;
+
+        // Simulate the other player's choice randomly.
+        const player2Choice = Math.random() < 0.5 ? 'Cooperate' : 'Betray';
+
+        // Calculate the outcomes for each player.
+        let player1Outcome;
+        let player2Outcome;
+        if (player1Choice === 'Cooperate') {
+          if (player2Choice === 'Cooperate') {
+            player1Outcome = 3;
+            player2Outcome = 3;
+          } else {
+            player1Outcome = 0;
+            player2Outcome = 5;
+          }
+        } else {
+          if (player2Choice === 'Cooperate') {
+            player1Outcome = 5;
+            player2Outcome = 0;
+          } else {
+            player1Outcome = 1;
+            player2Outcome = 1;
+          }
+        }
+
+        // Update the scores.
+        player1Score += player1Outcome;
+        player2Score += player2Outcome;
+
+        // Display the results after each round.
+        resultsDiv.innerHTML += `Round ${roundNumber}: You (${player1Choice}) - ${player1Outcome} points, Bot (${player2Choice}) - ${player2Outcome} points<br>`;
+      }
+
+      function stopGame() {
+        // Disable the buttons
+        cooperateButton.disabled = true;
+        betrayButton.disabled = true;
+        stopButton.disabled = true;
+
+        // Display the final results and the winner
+        displayFinalResults();
+      }
+
+      function displayFinalResults() {
+        resultsDiv.innerHTML += `<br>Final Results:<br>Your Score: ${player1Score}<br>Bot's Score: ${player2Score}<br>`;
+
+        // Determine the winner
+        let winner;
+        if (player1Score > player2Score) {
+          winner = 'You';
+        } else if (player2Score > player1Score) {
+          winner = 'Bot';
+        } else {
+          winner = 'It\'s a tie!';
+        }
+	 resultsDiv.innerHTML += `<p>Congratulations! ${winner}!</p>`;
+
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+ 
+   
+
+
+
+ 
+   
