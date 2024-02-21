@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prisoner's Dilemma Game</title>
 	  <style>
-		   body 
+		body 
 		  {
+	    text-align: center;
             background-color: #C0C0C0; 
             color: darkblue; 
             font-family: Arial, sans-serif; 
@@ -23,7 +24,6 @@
 
     <script>
       const resultsDiv = document.getElementById('results');
-
       const cooperateButton = document.getElementById('cooperate-button');
       cooperateButton.addEventListener('click', () => {
         playRound('Cooperate');
