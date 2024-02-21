@@ -1,69 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
     <title>Prisoner's Dilemma Game</title>
-    <style>
-        body {
-            background-color: #3498db;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        h1, h2, p {
-            color: #2c3e50;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        h2 {
-            font-size: 24px;
-        }
-
-        button {
-            background-color: #2ecc71;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 18px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #27ae60;
-        }
-
-        #results {
-            background-color: #ecf0f1;
-            color: #2c3e50;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>The Prisoner's Dilemma Game</h1>
-    <h2>Welcome! Let's Start</h2>
+	  <style>
+		   body 
+		  {
+            background-color: #C0C0C0; 
+            color: #333; 
+            font-family: Arial, sans-serif; 
+        	}
+	  </style>
+  </head>
+  <body>
+    <h1>Prisoner's Dilemma Game</h1>
+    <h2>Welcome!<h2>
     <button id="cooperate-button">Cooperate</button>
     <button id="betray-button">Betray</button>
     <button id="stop-button">Stop</button>
     <div id="results"></div>
 
     <script>
-	    <script>
       const resultsDiv = document.getElementById('results');
+
       const cooperateButton = document.getElementById('cooperate-button');
       cooperateButton.addEventListener('click', () => {
         playRound('Cooperate');
@@ -87,7 +45,7 @@
         roundNumber++;
 
         // Simulate the other player's choice randomly.
-        const player2Choice = Math.random() < 0.4 ? 'Cooperate' : 'Betray';
+        const player2Choice = Math.random() < 0.5 ? 'Cooperate' : 'Betray';
 
         // Calculate the outcomes for each player.
         let player1Outcome;
@@ -134,7 +92,7 @@
         // Determine the winner
         let winner;
         if (player1Score > player2Score) {
-          winner = 'Player';
+          winner = 'You';
         } else if (player2Score > player1Score) {
           winner = 'Bot';
         } else {
