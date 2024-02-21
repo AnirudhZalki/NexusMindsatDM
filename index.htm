@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prisoner's Dilemma Game</title>
 	  <style>
 		   body 
 		  {
             background-color: #C0C0C0; 
-            color: #333; 
+            color: darkblue; 
             font-family: Arial, sans-serif; 
         	}
 	  </style>
@@ -45,7 +47,7 @@
         roundNumber++;
 
         // Simulate the other player's choice randomly.
-        const player2Choice = Math.random() < 0.5 ? 'Cooperate' : 'Betray';
+        const player2Choice = Math.random() < 0.4 ? 'Cooperate' : 'Betray';
 
         // Calculate the outcomes for each player.
         let player1Outcome;
@@ -92,7 +94,7 @@
         // Determine the winner
         let winner;
         if (player1Score > player2Score) {
-          winner = 'You';
+          winner = 'Player';
         } else if (player2Score > player1Score) {
           winner = 'Bot';
         } else {
