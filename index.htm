@@ -1,27 +1,68 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prisoner's Dilemma Game</title>
-	  <style>
-		body 
-		  {
-            background-color: #C0C0C0; 
-            color: darkblue; 
-            font-family: Arial, sans-serif; 
-        	}
-	  </style>
-  </head>
-  <body>
+    <style>
+        body {
+            background-color: #3498db;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1, h2, p {
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        #results {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
     <h1>The Prisoner's Dilemma Game</h1>
-    <h2>Welcome! Let's Start<h2>
+    <h2>Welcome! Let's Start</h2>
     <button id="cooperate-button">Cooperate</button>
     <button id="betray-button">Betray</button>
     <button id="stop-button">Stop</button>
     <div id="results"></div>
 
     <script>
+	    <script>
       const resultsDiv = document.getElementById('results');
       const cooperateButton = document.getElementById('cooperate-button');
       cooperateButton.addEventListener('click', () => {
@@ -102,6 +143,8 @@
 	 resultsDiv.innerHTML += `<p>Congratulations! ${winner}!</p>`;
 
       }
+    </script>
+       
     </script>
   </body>
 </html>
